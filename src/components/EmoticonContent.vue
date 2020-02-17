@@ -34,9 +34,6 @@
     let isLoading = false;//是否正在加载
     let exp_this;
 
-    import Axios from 'axios';
-    import $ from 'jquery'
-
     export default {
         name: "EmoticonContent",
         data() {
@@ -56,6 +53,7 @@
         mounted:function () {
             loadEmoticon()
         }
+
     }
 
     /**
@@ -79,7 +77,7 @@
                     }
                 } else
                 {
-                    $("#drop-down-load").fadeOut();
+                    exp_this.$("#drop-down-load").fadeOut();
                 }
             }
         }
@@ -89,17 +87,17 @@
      * 加载表情包
      */
     function loadEmoticon() {
-        Axios.get(Const.WebApi.WEB_FIND_EMOTICON,{params:{currentPage:emoticonCurrentPage,currentCount:40}})
+        exp_this.$axios.get(Const.WebApi.WEB_FIND_EMOTICON,{params:{currentPage:emoticonCurrentPage,currentCount:40}})
             .then(function (response) {
                 let json = response.data;
                 console.info(response);
                 for (let obj of json.data)
                 exp_this.ds.push(obj);
 
-
                 emoticonCurrentPage = json.curPage;
                 emoticonTotalPage = json.tolPage;
                 isLoading = false;
+                if (json.data.length === 0) exp_this.$("#drop-down-load").fadeOut();
             })
             .catch(function (error) { // 请求失败处理
                 console.log(error);

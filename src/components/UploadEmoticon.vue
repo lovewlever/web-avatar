@@ -42,10 +42,9 @@
 <script>
 
   import Const from "./Const";
-  import Axios from 'axios'
+
     export default {
         name: "UploadEmoticon",
-        inject:["reload"],
         data() {
             return {
                 fileNames:'点击此处选择文件',
@@ -57,7 +56,7 @@
         },
         methods:{
             fileChange:function (ev) {
-                this.formData = new FormData()
+                this.formData = new FormData();
                 let files = ev.path[0].files;
                 for (let file of files)
                 {
@@ -68,7 +67,7 @@
             submit:function () {
                 this.formData.append("label",this.label_name);
                 this.formData.append("describe",this.des);
-                Axios({
+                this.$axios({
                     url:Const.WebApi.Web_UPLOAD_EMOTICON,
                     data:this.formData,
                     processData:false,

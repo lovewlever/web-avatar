@@ -24,15 +24,10 @@
                 </label>
 
                 <div>
-                    <button type="button" id="submit" v-on:click="submits">登录</button>
+                    <button type="button" id="submit" v-on:click="submits">立即注册</button>
                 </div>
 
-                <div style="display: flex">
-                    <span class="span-forget-pwd" style="flex: 1">找回密码</span>
-
-                    <span class="span-forget-pwd" style="flex: 1" v-on:click="toRegistered">注册</span>
-                </div>
-
+                <span class="span-forget-pwd" @click="toLogin">登录</span>
 
             </div>
         </div>
@@ -55,29 +50,20 @@
             getVerifyCode(this)
         },
         methods:{
-            toRegistered:function(){
-                this.$router.push("/registered")
-            },
-            submits:function () {
+            toLogin:function(){this.$router.push("/login")},
+            submits : function () {
                 let fromData = new FormData();
                 fromData.set("account",this.account);
                 fromData.set("pwd",this.password);
                 fromData.set("verifyCode",this.vaCode);
                 this.$axios({
-                    url:Const.WebApi.WEB_TO_LOGIN,
+                    url:Const.WebApi.WEB_TO_REGISTERED,
                     data:fromData,
                     method: "POST"
                 }).then((res)=>{
                     let data = res.data;
-                    console.info(data);
-
                     if (data.code === 1)
                     {
-                        if (window.localStorage)
-                        {
-                            window.localStorage.setItem(Const.WebApi.STORAGE_TOKEN_KEY,data.data[0].token);
-                            window.localStorage.setItem(Const.WebApi.STORAGE_USER_NAME,data.data[0].uName)
-                        }
                         location.reload()
                     }
                 }).catch(reason => {
@@ -148,7 +134,7 @@
         top: 0;
         left: 0;
         position: absolute;
-        background: url("https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3422969247,629542956&fm=26&gp=0.jpg") no-repeat;
+        background: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1581928380058&di=d17d2d5b21060941d23190ec0a33374f&imgtype=0&src=http%3A%2F%2Fbpic.588ku.com%2Fback_pic%2F02%2F64%2F77%2F155785e53a54fc2.jpg") no-repeat;
         background-size: cover;
         filter: blur(5px);
         z-index: 2;
@@ -238,6 +224,7 @@
 
     .span-forget-pwd {
         margin-top: 8px;
+        display: inline-block;
     }
 
     .span-forget-pwd:hover{

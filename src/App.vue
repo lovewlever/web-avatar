@@ -5,6 +5,7 @@
 </template>
 
 <script>
+
   export default {
     name: 'App',
     created:function () {
@@ -17,7 +18,6 @@
         gl_this.$router.push("/home");
         window.clearInterval(time);
       },3000);
-
     }
   }
 </script>

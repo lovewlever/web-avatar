@@ -15,6 +15,7 @@ const routes = [
   },
   {path: "/welcome", component: () => import("../views/Welcome")},
   {path: "/login", component: () => import("../views/Login")},
+  {path: "/registered", component: () => import("../views/Registered")},
   {path: "/navigation", component: () => import("../components/Navigation")}
 ];
 
