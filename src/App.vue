@@ -1,12 +1,26 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
     <router-view/>
   </div>
 </template>
+
+<script>
+  export default {
+    name: 'App',
+    created:function () {
+      this.$router.push("/welcome")
+    },
+    mounted:function () {
+      let gl_this = this;
+      let time = window.setInterval(function () {
+        console.info("mounted");
+        gl_this.$router.push("/home");
+        window.clearInterval(time);
+      },3000);
+
+    }
+  }
+</script>
 
 <style>
 #app {
@@ -15,6 +29,22 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
 }
 
 #nav {
