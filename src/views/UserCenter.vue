@@ -13,9 +13,7 @@
                             消息(<span style="color: red">0</span>)
                         </router-link>
                     </a>
-
                 </div>
-
                 <hr>
 
                 <h5><i class="fa fa-user-circle" aria-hidden="true">&nbsp;&nbsp;</i>&nbsp;&nbsp;我的账号</h5>

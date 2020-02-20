@@ -1,3 +1,7 @@
 module.exports = {
-  publicPath: '/avatar/'
+    runtimeCompiler: true,
+    publicPath: './',
+    devServer: {
+        port: 8080
+    }
 };
