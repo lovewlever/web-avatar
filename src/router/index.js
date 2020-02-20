@@ -16,7 +16,11 @@ const routes = [
   {path: "/welcome", component: () => import("../views/Welcome")},
   {path: "/login", component: () => import("../views/Login")},
   {path: "/registered", component: () => import("../views/Registered")},
-  {path: "/navigation", component: () => import("../components/Navigation")}
+  {path: "/navigation", component: () => import("../components/Navigation")},
+  {path: "/user_center", component: () => import("../views/UserCenter"),children:[
+      {path:"/mod_user_info" ,component:()=> import("../components/ModifyUserInfo")},
+      {path:"/mod_pwd" ,component:()=> import("../components/ModifyPwd")}
+    ]}
 ];
 
 const router = new VueRouter({

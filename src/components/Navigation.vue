@@ -49,7 +49,7 @@
                 {{userName}}
             </button>
             <div class="dropdown-menu" style="min-width: 8rem">
-                <a class="dropdown-item menu-a" href="#">个人信息</a>
+                <a class="dropdown-item menu-a" href="#"><router-link to="/user_center" tag="span">个人信息</router-link></a>
                 <a class="dropdown-item menu-a" href="#">主页</a>
                 <a class="dropdown-item" href="#">修改信息</a>
                 <div class="dropdown-divider"></div>
