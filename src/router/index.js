@@ -21,6 +21,7 @@ const routes = [
   {path: "/user_center", component: () => import("../views/UserCenter"),children:[
       {path:"/mod_user_info" ,component:()=> import("../components/ModifyUserInfo")},
       {path:"/mod_user_subscription" ,component:()=> import("../components/ModifySubscription")},
+      {path:"/mod_user_message" ,component:()=> import("../components/ModifyMessage")},
       {path:"/mod_pwd" ,component:()=> import("../components/ModifyPwd")}
     ]}
 ];

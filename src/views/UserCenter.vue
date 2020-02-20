@@ -8,8 +8,14 @@
 
                     <h5 style="margin-top: 8px">lovewlever</h5>
 
-                    <span style="margin-top: 8px">消息(<span style="color: red">1</span>)</span>
+                    <a href="#" :class="['noo',{actives:act === 'mod_msg'}]" @click="modAct('mod_msg')">
+                        <router-link to="/mod_user_message" tag="span">
+                            消息(<span style="color: red">0</span>)
+                        </router-link>
+                    </a>
+
                 </div>
+
                 <hr>
 
                 <h5><i class="fa fa-user-circle" aria-hidden="true">&nbsp;&nbsp;</i>&nbsp;&nbsp;我的账号</h5>
@@ -42,13 +48,13 @@
                 <div>
                     <ul class="ull">
                         <li>
-                            <a href="#" :class="['noo',{actives:act === 'my_pro'}]" @click="modAct('my_pro')">我的产品</a>
+                            <a href="#" :class="['noo',{actives:act === 'my_pro'}]" @click="modAct('my_pro')">我的上传</a>
                         </li>
                         <li>
-                            <a href="#" :class="['noo',{actives:act === 'pro_reg'}]" @click="modAct('pro_reg')">产品注册</a>
+                            <a href="#" :class="['noo',{actives:act === 'pro_reg'}]" @click="modAct('pro_reg')">我的喜欢</a>
                         </li>
                         <li>
-                            <a href="#" :class="['noo',{actives:act === 'pri_ser'}]" @click="modAct('pri_ser')">增值服务</a>
+                            <a href="#" :class="['noo',{actives:act === 'pri_ser'}]" @click="modAct('pri_ser')">我的评论</a>
                         </li>
 
                     </ul>
