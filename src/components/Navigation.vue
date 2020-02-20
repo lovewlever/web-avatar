@@ -2,28 +2,28 @@
     <div class="nav">
         <ul>
             <li>
-                <a href="javascript:void(0)" :class="{activity : isSel === 'home'}" @click="activi('home')">
+                <a href="javascript:void(0)" :class="['no-sel',{activity : isSel === 'home'}]" @click="activi('home')">
                     <router-link to="/emoticon" tag="span">
                         主页
                     </router-link>
                 </a>
             </li>
             <li>
-                <a href="javascript:void(0)" :class="{activity : isSel === 'recommend'}" @click="activi('recommend')">
+                <a href="javascript:void(0)" :class="['no-sel',{activity : isSel === 'recommend'}]" @click="activi('recommend')">
                     <router-link to="/recommend" tag="span">
                         推荐
                     </router-link>
                 </a>
             </li>
             <li>
-                <a href="javascript:void(0)" :class="{activity : isSel === 'hot'}" @click="activi('hot')">
-                    <router-link to="/recommend" tag="span">
-                        <span>热门</span>
+                <a href="javascript:void(0)" :class="['no-sel',{activity : isSel === 'hot'}]" @click="activi('hot')">
+                    <router-link to="/emo_hot" tag="span">
+                        热门
                     </router-link>
                 </a>
             </li>
             <li>
-                <a href="javascript:void(0)" :class="{activity : isSel === 'upload'}" @click="activi('upload')">
+                <a href="javascript:void(0)" :class="['no-sel',{activity : isSel === 'upload'}]" @click="activi('upload')">
                     <router-link to="/upload_emoticon" tag="span">
                         我要上传
                     </router-link>
@@ -53,7 +53,7 @@
                 <a class="dropdown-item menu-a" href="#">主页</a>
                 <a class="dropdown-item" href="#">修改信息</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">推出</a>
+                <a class="dropdown-item" href="#" @click="ext_sys()">推出</a>
             </div>
         </div>
 
@@ -87,6 +87,10 @@
         methods: {
             activi: function (str) {
                 this.isSel = str
+            },
+            ext_sys:function () {
+                window.localStorage.clear();
+                location.reload()
             }
         }
     }
@@ -121,10 +125,16 @@
         z-index: 1;
     }
 
+    .no-sel {
+        color: #808080;
+    }
+
+    .activity {
+        color: dodgerblue;
+    }
 
     .nav a {
         text-decoration: none;
-        color: #808080;
         margin: auto 0px;
         padding: 0px 20px;
     }
@@ -161,9 +171,6 @@
         box-shadow: 0px 0px 4px gray inset;
     }
 
-    .activity {
-        color: dodgerblue;
-    }
 
     .nav-login  {
         margin: auto 8px auto auto;

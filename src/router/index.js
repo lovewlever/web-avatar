@@ -8,9 +8,10 @@ const routes = [
   {path: "/app", component: ()=> import('../App.vue')},
   {
     path: "/home", component: () => import('../views/Home.vue'), children: [
-      {path: "/recommend", component: ()=> import("../components/Recommend")},
+      {path: "/recommend", component: ()=> import("../components/EmoticonRecommend")},
       {path: "/emoticon", component: () => import("../components/EmoticonContent")},
-      {path: "/upload_emoticon", component: () => import("../components/UploadEmoticon")}
+      {path: "/emo_hot", component: () => import("../components/EmoticonHot")},
+      {path: "/upload_emoticon", component: () => import("../components/EmoticonUpload")}
     ]
   },
   {path: "/welcome", component: () => import("../views/Welcome")},
