@@ -12,7 +12,7 @@
                 </div>
                 <hr>
 
-                <h5><i class="fa fa-user-circle" aria-hidden="true">&nbsp;&nbsp;</i>&nbsp;&nbsp;lovewlever</h5>
+                <h5><i class="fa fa-user-circle" aria-hidden="true">&nbsp;&nbsp;</i>&nbsp;&nbsp;我的账号</h5>
                 <div>
                     <ul class="ull">
                         <li>
@@ -26,7 +26,9 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" :class="['noo',{actives:act ===  'subs'}]" @click="modAct('subs')">订阅设置</a>
+                            <a href="#" :class="['noo',{actives:act ===  'subs'}]" @click="modAct('subs')">
+                                <router-link to="/mod_user_subscription" tag="span">订阅设置</router-link>
+                            </a>
                         </li>
 
                     </ul>
@@ -56,10 +58,10 @@
             </div>
 
             <div class="menu-content">
-                <h3 align="left" style="margin-left: 40px">个人资料</h3>
                 <router-view/>
             </div>
         </div>
+
     </div>
 
 </template>
@@ -97,7 +99,7 @@
 
     .left-menu {
         width: 280px;
-        height:auto;
+        height:580px;
         background-color: rgb(246,246,246);
         border-radius: 6px;
         margin: 8px;
@@ -113,7 +115,6 @@
         border-top: deepskyblue 1px  solid;
         padding-top: 16px;
     }
-
 
     .noo {
         color: grey;

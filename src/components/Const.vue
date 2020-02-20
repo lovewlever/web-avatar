@@ -3,7 +3,9 @@
     let WEB_URL = "http://localhost:8090";
     const WebApi = {
 
-        STORAGE_TOKEN_KEY:"token",STORAGE_USER_NAME:"user_name",
+        STORAGE_TOKEN_KEY:"token",
+        STORAGE_USER_NAME:"user_name",
+        STORAGE_USER_AVATAR:"user_avatar",
         //获取验证码
         WEB_GET_VERIFY_CODE: WEB_URL + "/getVerifyCode",
         //查询表情包

@@ -20,6 +20,7 @@ const routes = [
   {path: "/navigation", component: () => import("../components/Navigation")},
   {path: "/user_center", component: () => import("../views/UserCenter"),children:[
       {path:"/mod_user_info" ,component:()=> import("../components/ModifyUserInfo")},
+      {path:"/mod_user_subscription" ,component:()=> import("../components/ModifySubscription")},
       {path:"/mod_pwd" ,component:()=> import("../components/ModifyPwd")}
     ]}
 ];
