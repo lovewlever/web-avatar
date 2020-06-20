@@ -91,8 +91,10 @@
             .then(function (response) {
                 let json = response.data;
                 console.info(response);
-                for (let obj of json.data)
-                exp_this.ds.push(obj);
+                for (let obj of json.data) {
+                    obj.filePath = Const.WebApi.WEB_URL + obj.filePath
+                    exp_this.ds.push(obj);
+                }
 
                 emoticonCurrentPage = json.curPage;
                 emoticonTotalPage = json.tolPage;
